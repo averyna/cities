@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document(collection = "city")
 public class CityEntity implements Serializable  {
   @Id
-  private String Id;
+  private String id;
 
   @NonNull
   @Indexed(unique = true)
