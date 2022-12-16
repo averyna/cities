@@ -1,6 +1,7 @@
 package com.helmes.cities.config;
 
-import com.helmes.cities.adapter.out.repository.PostgresCityRepository;
+import com.helmes.cities.adapter.out.persistance.MongoCityRepository;
+import com.helmes.cities.adapter.out.repository.OutCityRepository;
 import com.helmes.cities.domain.repository.CityRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Repository;
@@ -9,10 +10,8 @@ import org.springframework.stereotype.Repository;
 public class CityRepositoryConfig {
 
   @Bean
-  public CityRepository cityRepository() {
-    return new PostgresCityRepository();
-//  public CityRepository cityRepository() {
-//    return new PostgresCityRepository();
+  public CityRepository cityRepository(MongoCityRepository repository) {
+    return new OutCityRepository(repository);
   }
 
 }

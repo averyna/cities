@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder(toBuilder = true)
 public class City {
-  private Long Id;
+  private String Id;
   private String name;
   private String photoUrl;
 }

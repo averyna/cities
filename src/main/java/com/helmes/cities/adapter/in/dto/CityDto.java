@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class CityDto {
-  private Long Id;
+  private String Id;
   private String name;
   private String photoUrl;
 }
