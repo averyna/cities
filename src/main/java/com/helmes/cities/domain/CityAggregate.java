@@ -9,5 +9,7 @@ public interface CityAggregate {
 
   public City findCityByName(String name);
 
+  public City findCityById(String name);
+
   public Boolean editCity(City city);
 }

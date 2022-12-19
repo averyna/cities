@@ -6,6 +6,7 @@ import com.helmes.cities.adapter.out.persistance.MongoCityRepository;
 import com.helmes.cities.domain.entities.City;
 import com.helmes.cities.domain.repository.CityRepository;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 import lombok.Builder;
@@ -26,7 +27,6 @@ public class OutCityRepository implements CityRepository {
 
   @Override
   public List<City> findAllCities() {
-    final Iterable<CityEntity> all = repository.findAll();
     return StreamSupport.stream(repository.findAll().spliterator(), false)
         .map(CityEntityMapper::toCity)
         .collect(Collectors.toList());
@@ -35,6 +35,12 @@ public class OutCityRepository implements CityRepository {
   @Override
   public City searchByName(String name) {
     final List<CityEntity> byName = repository.findByName(name);
-    return CityEntityMapper.toCity(byName.get(0)); // todo: handle no matched city
+    return CityEntityMapper.toCity(byName.get(0));
+  }
+
+  @Override
+  public City searchById(String id) {
+    final Optional<CityEntity> byId = repository.findById(id);
+    return byId.map(CityEntityMapper::toCity).orElse(null);
   }
 }

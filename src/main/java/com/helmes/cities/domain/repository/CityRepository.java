@@ -9,6 +9,8 @@ public interface CityRepository {
 
   public City searchByName(String name);
 
+  public City searchById(String id);
+
   public Boolean update(City city);
 
 }
