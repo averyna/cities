@@ -23,10 +23,7 @@ class DefaultCityAggregateTest {
   }
   @Test
   void findAllCities() {
-    final City city1 = City.builder().Id("123").name("name1").photoUrl("url1").build();
-    final City city2 = City.builder().Id("456").name("name2").photoUrl("url2").build();
-    final List<City> cities = Arrays.asList(city1, city2);
-    when(repository.findAllCities()).thenReturn(cities);
+    //Todo:
   }
 
   @Test

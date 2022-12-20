@@ -80,7 +80,7 @@ public class CityControllerIntegrationTest {
 
   @Test
   public void givenCitiesEditURI_whenSendingPutReq_thenVerifyResponse() {
-    when(cityAggregate.editCity(any())).thenReturn(true);
+    when(cityAggregate.editCity(any())).thenReturn(any());
 
     CityDto dto = CityDto.builder().Id("123").name("London").photoUrl("url").build();
 

@@ -35,7 +35,7 @@ public class DefaultCityAggregate implements CityAggregate {
   }
 
   @Override
-  public Boolean editCity(City city) {
+  public City editCity(City city) {
     final City existingCity = repository.searchById(city.getId());
     if (existingCity == null) {
       throw new CityNotFoundException("The city is not found " + city);

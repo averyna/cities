@@ -11,5 +11,5 @@ public interface CityAggregate {
 
   public City findCityById(String name);
 
-  public Boolean editCity(City city);
+  public City editCity(City city);
 }

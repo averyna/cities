@@ -11,6 +11,6 @@ public interface CityRepository {
 
   public City searchById(String id);
 
-  public Boolean update(City city);
+  public City update(City city);
 
 }

@@ -19,10 +19,10 @@ public class OutCityRepository implements CityRepository {
   private final MongoCityRepository repository;
 
   @Override
-  public Boolean update(City city) {
+  public City update(City city) {
     final CityEntity cityEntity = CityEntityMapper.toCityEntity(city);
     final CityEntity savedEntity = repository.save(cityEntity);
-    return true;
+    return CityEntityMapper.toCity(savedEntity);
   }
 
   @Override
