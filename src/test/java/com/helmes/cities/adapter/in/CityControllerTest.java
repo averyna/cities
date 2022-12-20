@@ -24,19 +24,19 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class CitiesControllerTest {
+class CityControllerTest {
 
-  private CitiesController controller;
+  private CityController controller;
   @Mock
   CityAggregate cityAggregate;
 
   @BeforeEach
   void setUp() {
-    controller = new CitiesRestService(cityAggregate);
+    controller = new CityRestService(cityAggregate);
   }
 
   @Test
-  void getAllCitiesReturnesListOfCities() {
+  void getAllCities_thenReturnListOfCities() {
     final City city1 = City.builder().Id("123").name("name1").photoUrl("url1").build();
     final City city2 = City.builder().Id("456").name("name2").photoUrl("url2").build();
     final List<City> cities = Arrays.asList(city1, city2);
@@ -50,7 +50,7 @@ class CitiesControllerTest {
   }
 
   @Test
-  void getCityByNameReturnesCity() {
+  void getCityByName_thenReturnCity() {
     final City city1 = City.builder().Id("123").name("name1").photoUrl("url1").build();
     when(cityAggregate.findCityByName(any())).thenReturn(city1);
     // When
@@ -61,7 +61,7 @@ class CitiesControllerTest {
   }
 
   @Test
-  void editCity() {
+  void editCity_thenReturnTrue() {
     final CityDto city1 = CityDto.builder().Id("123").name("name1").photoUrl("url1").build();
     final City city = City.builder().Id("123").name("name1").photoUrl("url1").build();
     when(cityAggregate.editCity(any())).thenReturn(true);
@@ -73,7 +73,7 @@ class CitiesControllerTest {
   }
 
   @Test
-  void editCityShouldThrowException() {
+  void editCity_whenThrowsException_thenReturnFalse() {
     final CityDto city1 = CityDto.builder().Id("123").name("name1").photoUrl("url1").build();
     final City city = City.builder().Id("123").name("name1").photoUrl("url1").build();
     when(cityAggregate.editCity(any())).thenThrow(CityNotFoundException.class);

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RestController
 @RequestMapping("/cities")
-public interface CitiesController {
+public interface CityController {
 
   @GetMapping
   List<CityResponseDto> getAllCities();

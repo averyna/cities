@@ -1,7 +1,7 @@
 package com.helmes.cities.config;
 
-import com.helmes.cities.adapter.in.CitiesController;
-import com.helmes.cities.adapter.in.CitiesRestService;
+import com.helmes.cities.adapter.in.CityController;
+import com.helmes.cities.adapter.in.CityRestService;
 import com.helmes.cities.domain.CityAggregate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 public class CitiesControllerConfig {
 
   @Bean
-  public CitiesController receiverController(final CityAggregate cityAggregate) {
-    return new CitiesRestService(cityAggregate);
+  public CityController receiverController(final CityAggregate cityAggregate) {
+    return new CityRestService(cityAggregate);
   }
 
 }

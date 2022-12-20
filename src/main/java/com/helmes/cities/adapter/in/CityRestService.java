@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @AllArgsConstructor
 @Slf4j
-public class CitiesRestService implements CitiesController {
+public class CityRestService implements CityController {
 
   private final CityAggregate cityAggregate;
 
@@ -27,7 +27,7 @@ public class CitiesRestService implements CitiesController {
   public CityResponseDto getCityByName(String name) {
     final City cityByName = cityAggregate.findCityByName(name);
     return CityResponseDtoMapper.toCityResponseDto(cityByName);
-    // todo: handle request when there is no match by name
+    // todo: handle request when there is no match by name / catch CityNotFoundException
   }
 
   @Override
