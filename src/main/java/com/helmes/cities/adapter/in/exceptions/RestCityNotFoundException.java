@@ -11,4 +11,8 @@ public class RestCityNotFoundException extends RuntimeException {
     super(message);
     this.httpCode = status.value();
   }
+
+  public int getHttpCode() {
+    return httpCode;
+  }
 }

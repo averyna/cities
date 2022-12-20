@@ -2,7 +2,6 @@ package com.helmes.cities.adapter.in;
 
 import com.helmes.cities.adapter.in.dto.CityDto;
 import com.helmes.cities.adapter.in.dto.CityResponseDto;
-import com.helmes.cities.adapter.in.exceptions.RestCityNotFoundException;
 import com.helmes.cities.adapter.in.mapper.CityResponseDtoMapper;
 import com.helmes.cities.domain.CityAggregate;
 import com.helmes.cities.domain.entities.City;
@@ -11,7 +10,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 
 @AllArgsConstructor
 @Slf4j
@@ -37,7 +35,7 @@ public class CitiesRestService implements CitiesController {
     try {
       return cityAggregate.editCity(CityResponseDtoMapper.toCity(cityDto));
     } catch (CityNotFoundException ex) {
-      throw new RestCityNotFoundException(ex.getMessage(), HttpStatus.NOT_FOUND);
+      return false;
     }
   }
 }
